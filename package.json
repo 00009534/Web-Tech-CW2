@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "_express, axios_\r ### **Dev deps:**\r _nodemon, @types/express_",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon app.js",
     "build": "node app"
