@@ -26,7 +26,8 @@
   "homepage": "https://github.com/00009534/Web-Tech-CW2#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
