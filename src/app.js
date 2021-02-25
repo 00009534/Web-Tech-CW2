@@ -1,12 +1,12 @@
 // Built-in modules
 import path from 'path'
-import fs from 'fs'
+// import fs from 'fs'
 
 // Third-party modules
 import express from 'express'
 
 // Local modules
-import uniqueId from './utils/uniqueId.js'
+// import uniqueId from './utils/uniqueId.js'
 
 // Configs
 const PORT = process.env.PORT ?? 3000
@@ -26,6 +26,6 @@ app.get('/', (req, res) => {
 })
 
 // Server running
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}...`)
 })
