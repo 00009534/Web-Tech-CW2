@@ -1,6 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import {uniqueID} from '../utils/uniqueId.js';
 
 const __dirname = path.resolve()
 const router = express.Router();
@@ -14,12 +15,14 @@ router.route('/')
 
 router.post('/create-employee', (req, res) => {
   const newEmployee = {
+    id: uniqueID(),
     fullName: req.body.fullName,
     age: req.body.age,
     department: req.body.department,
     jobPosition: req.body.position,
-    tel: req.body.phone,
-    email: req.body.email
+    phone: req.body.phone,
+    email: req.body.email,
+    photo: req.file.filename ?? ''
   }
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
@@ -33,14 +36,16 @@ router.post('/create-employee', (req, res) => {
   })
 })
 
-router.put('/update-employee/:employeeID', (req, res) => {
+router.post('/update-employee/:employeeID', (req, res) => {
   const updatedEmployee = {
+    id: req.params.employeeID,
     fullName: req.body.fullName,
     age: req.body.age,
     department: req.body.department,
     jobPosition: req.body.position,
-    tel: req.body.phone,
-    email: req.body.email
+    phone: req.body.phone,
+    email: req.body.email,
+    photo: req.file.filename ?? ''
   }
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
