@@ -1,0 +1,22 @@
+extends components/layout
+
+block content
+    h1.main-content__heading EmployeeName
+    .employee-data
+        img(src='/static/images/hr_logo.jpg' alt="employee's photo")
+        .employee-info
+            p
+                span Department:
+                | departmentName
+            p
+                span Position:
+                | Position
+            p
+                span Age:
+                | Age
+            p
+                span Phone number:
+                a(href='tel:EmployeeTel') Phone
+            p
+                span Email address:
+                a(href='mailto:EmployeeEmail') Email

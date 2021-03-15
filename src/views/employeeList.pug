@@ -1,4 +1,13 @@
-extends layout
+extends components/layout
 
-block container
-    h1 Employees page
+block content
+    h1.main-content__heading All Employees
+    ul.employee-list
+        li.employee-item
+            a(href='/employee-details/id')
+                img(src='/static/images/hr_logo.jpg' alt="employeeName's photo")
+                |           EmployeeName
+            span DepartmentName
+            .manage-btns
+                button.delete Delete
+                button.update Update

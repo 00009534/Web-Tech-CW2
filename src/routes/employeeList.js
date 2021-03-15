@@ -13,12 +13,11 @@ router.route('/')
     })
 
 router.delete('/:employeeID', (req, res) => {
-  const employeeID = req.params.employeeID
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
     const employeeList = JSON.parse(data)
     const employees =
-        employeeList.filter(employee => employee.id !== employeeID)
+        employeeList.filter(employee => employee.id !== req.params.employeeID)
 
     fs.writeFile(dbEmployeePath, JSON.stringify(employees), (err) => {
       if (err) res.status(400).send({success: false, error: true})

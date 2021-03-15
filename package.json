@@ -26,7 +26,9 @@
   "homepage": "https://github.com/00009534/Web-Tech-CW2#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "pug": "^3.0.0"
   },
   "devDependencies": {
