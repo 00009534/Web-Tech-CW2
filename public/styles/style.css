@@ -127,6 +127,8 @@ ul.employee-list {
 }
 li.employee-item {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--border-grey);
@@ -178,14 +180,16 @@ blockquote.about {
 .manager-forms {
     min-width: 95%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    justify-content: space-around;
 }
 .manager-forms form, .login-form{
     padding: 1rem;
     border: var(--border-grey);
     border-radius: 10px;
     box-shadow: 0 3px 5px #bbb;
-    width: 470px;
+    min-width: 470px;
     display: flex;
     flex-direction: column;
     align-self: center;
