@@ -1,6 +1,8 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import {isAdmin} from '../utils/auth.js';
+import {logStatus} from '../utils/logStatus.js';
 
 const __dirname = path.resolve()
 const router = express.Router();
@@ -15,7 +17,7 @@ router.get('/get-employees', (req, res) => {
   })
 })
 
-router.get('/get-employee/:employeeID', (req, res) => {
+router.get('/get-employee/:employeeID', isAdmin, (req, res) => {
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
     const employeeList = JSON.parse(data)
@@ -23,6 +25,11 @@ router.get('/get-employee/:employeeID', (req, res) => {
         employeeList.find(employee => employee.id === req.params.employeeID)
     res.json(employee)
   })
+})
+
+router.get('/logout', (req, res) => {
+  logStatus.status = false
+  res.redirect('/')
 })
 
 export default router
