@@ -246,3 +246,9 @@ blockquote.about {
     padding: 2rem;
     font-size: 1.7rem;
 }
+input.success {
+    border: 1px solid lime;
+}
+input.error {
+    border: 1px solid darkred;
+}

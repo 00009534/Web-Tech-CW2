@@ -11,3 +11,46 @@ if (logOutBtn) {
     fetch('/api/v1/logout').then()
   })
 }
+
+const loginForm = document.querySelector('.login-form')
+if (loginForm) {
+  validateForm(loginForm)
+}
+
+function validateForm(form) {
+  addEventValidations(form)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const inputs = Array.from(form.inputs)
+    const isValid = inputs.some(el => {
+      validateInputs(el)
+      return el.isValid === false
+    })
+    if (!isValid) {
+      form.submit()
+    }
+  })
+}
+
+function addEventValidations(form) {
+  form.inputs = form.querySelectorAll('input')
+  form.inputs.forEach(input => {
+    input.addEventListener('blur', () => {
+      validateInputs(input)
+    })
+  })
+}
+
+function validateInputs(input) {
+  if (input.value === '') {
+    input.classList.remove('success')
+    input.classList.add('error')
+    input.placeholder = 'This field cannot be empty'
+    input.isValid = false
+  } else {
+    input.classList.remove('error')
+    input.classList.add('success')
+    input.isValid = true
+  }
+}
+
