@@ -1,4 +1,7 @@
 header.header
     h1.logo
         a(href='/') Best HR
-    a.login-link(href='/login') Log in
+    if !logged
+        a.login-link(href='/login') Log in
+    else
+        a.login-link(href='/', data-log='out') Log out

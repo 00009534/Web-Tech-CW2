@@ -2,6 +2,8 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import {uniqueID} from '../utils/uniqueId.js';
+import {isAdmin} from '../utils/auth.js';
+import {logStatus} from '../utils/logStatus.js';
 
 const __dirname = path.resolve()
 const router = express.Router();
@@ -9,11 +11,11 @@ const router = express.Router();
 const dbEmployeePath = path.resolve(__dirname, './src/databases/employees.json')
 
 router.route('/')
-    .get((req, res) => {
-      res.render('employeeManager')
+    .get(isAdmin, (req, res) => {
+      res.render('employeeManager', {logged: logStatus.status})
     })
 
-router.post('/create-employee', (req, res) => {
+router.post('/create-employee', isAdmin, (req, res) => {
   const newEmployee = {
     id: uniqueID(),
     fullName: req.body.fullName,
@@ -36,7 +38,7 @@ router.post('/create-employee', (req, res) => {
   })
 })
 
-router.post('/update-employee/:employeeID', (req, res) => {
+router.post('/update-employee/:employeeID', isAdmin, (req, res) => {
   const updatedEmployee = {
     id: req.params.employeeID,
     fullName: req.body.fullName,

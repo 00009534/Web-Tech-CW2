@@ -1,6 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import {logStatus} from '../utils/logStatus.js';
 
 const __dirname = path.resolve()
 const router = express.Router();
@@ -9,7 +10,7 @@ const dbEmployeePath = path.resolve(__dirname, './src/databases/employees.json')
 
 router.route('/')
     .get((req, res) => {
-      res.render('employeeList')
+      res.render('employeeList', {logged: logStatus.status})
     })
 
 router.delete('/:employeeID', (req, res) => {
