@@ -1,28 +1,28 @@
-form(method='POST' action='/manage-employees/create-employee')
+form.create-employee-form(method='POST' action='/manage-employees/create-employee')
     h2 Create employee
     .input-field
         label Full name:
-        input(name='fullName' type='text' required='' placeholder="Enter employee's full name")
+        input(name='fullName' type='text' placeholder="Enter employee's full name")
     .input-field
         label Age:
-        input(name='age' type='number' required='' placeholder="Enter employee's age")
+        input(name='age' type='number' placeholder="Enter employee's age")
     .input-field
         label Department:
-        select(required='' name='department')
+        select(name='department' required='')
             option(value='' selected='' disabled='') Select department
             option(value='marketing') Marketing
             option(value='hr') Human Resource
             option(value='finance') Finance
     .input-field
         label Job position:
-        input(name='position' type='text' required='' placeholder="Enter employee's position in company")
+        input(name='position' type='text' placeholder="Enter employee's position in company")
     .input-field
         label Phone number:
-        input(name='phone' type='tel' required='' placeholder="Enter employee's phone number")
+        input(name='phone' type='tel' placeholder="Enter employee's phone number")
     .input-field
         label Email:
-        input(name='email' type='email' required='' placeholder="Enter employee's email address")
+        input(name='email' type='email' placeholder="Enter employee's email address")
     .input-field
         label Employee&apos;s photo:
-        input(name='photo' type='file')
+        input(name='photo' required='' type='file')
     button.create(type='submit') Create

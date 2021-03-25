@@ -13,9 +13,17 @@ if (logOutBtn) {
 }
 
 const loginForm = document.querySelector('.login-form')
+const createEmployeeForm = document.querySelector('.create-employee-form')
+const updateEmployeeForm = document.querySelector('.update-employee-form')
 if (loginForm) {
   validateForm(loginForm)
+} else if (createEmployeeForm) {
+  validateForm(createEmployeeForm)
 }
+if (updateEmployeeForm) {
+  validateForm(updateEmployeeForm)
+}
+
 
 function validateForm(form) {
   addEventValidations(form)
@@ -42,6 +50,9 @@ function addEventValidations(form) {
 }
 
 function validateInputs(input) {
+  if (input.type === 'file') {
+    return input.isValid = true
+  }
   if (input.value === '') {
     input.classList.remove('success')
     input.classList.add('error')
