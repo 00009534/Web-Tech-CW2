@@ -11,7 +11,6 @@ if (logOutBtn) {
     fetch('/api/v1/logout').then()
   })
 }
-
 const loginForm = document.querySelector('.login-form')
 const createEmployeeForm = document.querySelector('.create-employee-form')
 const updateEmployeeForm = document.querySelector('.update-employee-form')

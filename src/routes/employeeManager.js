@@ -33,7 +33,7 @@ router.post('/create-employee', isAdmin, (req, res) => {
 
     fs.writeFile(dbEmployeePath, JSON.stringify(employeeList), (err) => {
       if (err) res.status(400).send({success: false, error: true})
-      res.status(201).render('employeeManager', {success: true})
+      res.status(201).redirect('/manage-employees?success')
     })
   })
 })
@@ -47,7 +47,7 @@ router.post('/update-employee/:employeeID', isAdmin, (req, res) => {
     jobPosition: req.body.position,
     phone: req.body.phone,
     email: req.body.email,
-    photo: req.file.filename ?? ''
+    photo: req.file?.filename ?? ''
   }
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
@@ -57,7 +57,7 @@ router.post('/update-employee/:employeeID', isAdmin, (req, res) => {
     employeeList[index] = updatedEmployee;
     fs.writeFile(dbEmployeePath, JSON.stringify(employeeList), (err) => {
       if (err) res.status(400).send({success: false, error: true})
-      res.status(200).render('employeeManager', {success: true})
+      res.status(200).redirect('/manage-employees?success')
     })
   })
 })
