@@ -22,7 +22,7 @@ router.delete('/:employeeID', (req, res) => {
 
     fs.writeFile(dbEmployeePath, JSON.stringify(employees), (err) => {
       if (err) res.status(400).send({success: false, error: true})
-      res.status(200).send({success: true})
+      res.status(200).redirect('/employees?success')
     })
   })
 })

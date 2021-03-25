@@ -1,5 +1,8 @@
 extends components/layout
-
+block append head
+    link(rel='stylesheet' href='https://unpkg.com/native-toast@2.0.0/dist/native-toast.css')
+    script(src='https://unpkg.com/native-toast@2.0.0/dist/native-toast.min.js')
+    script(defer='' src='/static/javascripts/native-toast.js')
 block content
     h1.main-content__heading HR Management
     .manager-forms
