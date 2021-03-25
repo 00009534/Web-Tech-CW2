@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import {logStatus} from '../utils/logStatus.js';
+import {isAdmin} from '../utils/auth.js';
 
 const __dirname = path.resolve()
 const router = express.Router();
@@ -13,7 +14,7 @@ router.route('/')
       res.render('employeeList', {logged: logStatus.status})
     })
 
-router.delete('/:employeeID', (req, res) => {
+router.delete('/:employeeID', isAdmin, (req, res) => {
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
     const employeeList = JSON.parse(data)

@@ -12,5 +12,8 @@ block content
                 |           EmployeeName
             span DepartmentName
             .manage-btns
-                button.delete Delete
-                button.update Update
+                if logged
+                    button.delete Delete
+                    button.update Update
+                else
+                    a.delete(href='/login') Login to manage

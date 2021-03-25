@@ -147,7 +147,7 @@ li.employee-item a {
     display: flex;
     gap: 0.5rem;
 }
-.manage-btns button, form button {
+.manage-btns button, .manage-btns a, form button {
     padding: 0.4rem 0.7rem;
     font-size: 1.01rem;
     color: white;

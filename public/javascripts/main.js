@@ -23,7 +23,6 @@ if (updateEmployeeForm) {
   validateForm(updateEmployeeForm)
 }
 
-
 function validateForm(form) {
   addEventValidations(form)
   form.addEventListener('submit', (e) => {
