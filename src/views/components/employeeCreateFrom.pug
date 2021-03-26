@@ -1,4 +1,4 @@
-form.create-employee-form(method='POST' action='/manage-employees/create-employee')
+form.create-employee-form(method='POST' enctype='multipart/form-data' action='/manage-employees/create-employee')
     h2 Create employee
     .input-field
         label Full name:
@@ -18,11 +18,11 @@ form.create-employee-form(method='POST' action='/manage-employees/create-employe
         input(name='position' type='text' placeholder="Enter employee's position in company")
     .input-field
         label Phone number:
-        input(name='phone' type='tel' placeholder="Enter employee's phone number")
+        input(name='phone' maxlength='13' type='tel' placeholder="Enter employee's phone number")
     .input-field
         label Email:
         input(name='email' type='email' placeholder="Enter employee's email address")
     .input-field
         label Employee&apos;s photo:
-        input(name='photo' required='' type='file')
+        input(name='file' required='' type='file')
     button.create(type='submit') Create

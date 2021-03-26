@@ -5,12 +5,20 @@ block append head
     script(defer='' src='/static/javascripts/native-toast.js')
 block content
     h1.main-content__heading All Employees
-    ul.employee-list
-        li.employee-item
-            a(href='/employee-details/id')
-                img(src='/static/images/hr_logo.jpg' alt="employeeName's photo")
-                |           EmployeeName
-            span DepartmentName
-            .manage-btns
-                button.delete Delete
-                button.update Update
+    if employees.length > 0
+        ul.employee-list
+            each employee in employees
+                li.employee-item
+                    a(href=`/employee-details/${employee.id}`)
+                        img(src=`/static/images/${employee.photo}` alt=`${employee.fullName}'s photo`)
+                        |           #{employee.fullName}
+                    span #{employee.department === 'hr' ? 'Human Resources': employee.department}
+                    .manage-btns
+                        if logged
+                            button.delete(data-btn_type='delete' data-id=`${employee.id}`) Delete
+                            button.update(data-btn_type='update' data-id=`${employee.id}`) Update
+                        else
+                            a.delete(href='/login') Login to manage
+    else
+        p There is no employee yet.
+            a(href='/manage-employees') Click here to add.

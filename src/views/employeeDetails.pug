@@ -1,22 +1,22 @@
 extends components/layout
 
 block content
-    h1.main-content__heading EmployeeName
+    h1.main-content__heading #{employee.fullName}
     .employee-data
-        img(src='/static/images/hr_logo.jpg' alt="employee's photo")
+        img(src=`/static/images/${employee.photo}` alt=`${employee.fullName}'s photo`)
         .employee-info
             p
                 span Department:
-                | departmentName
+                | #{employee.department === 'hr' ? 'Human Resources': employee.department}
             p
                 span Position:
-                | Position
+                | #{employee.jobPosition}
             p
                 span Age:
-                | Age
+                | #{employee.age}
             p
                 span Phone number:
-                a(href='tel:EmployeeTel') Phone
+                a(href=`tel:${employee.position}`) #{employee.phone}
             p
                 span Email address:
-                a(href='mailto:EmployeeEmail') Email
+                a(href=`mailto:${employee.email}`) #{employee.email}

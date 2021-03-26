@@ -23,6 +23,27 @@ if (updateEmployeeForm) {
   validateForm(updateEmployeeForm)
 }
 
+const btnDeletes = document.querySelectorAll('[data-btn_type="delete"]')
+const btnUpdates = document.querySelectorAll('[data-btn_type="update"]')
+
+if (btnDeletes) {
+  btnDeletes.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id
+      fetch(`employees/${id}`, {
+        method: 'DELETE'
+      }).then(() => {
+        location.href = '/employees?success'
+      })
+    })
+  })
+  btnUpdates.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = btn.dataset.id
+      location.href = `manage-employees/${id}`
+    })
+  })
+}
 
 function validateForm(form) {
   addEventValidations(form)
