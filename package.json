@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "build": "node app"
+    "build": "node src/app"
   },
   "repository": {
     "type": "git",

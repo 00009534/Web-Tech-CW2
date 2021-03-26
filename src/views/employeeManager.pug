@@ -7,4 +7,7 @@ block content
     h1.main-content__heading HR Management
     .manager-forms
         include components/employeeCreateFrom
-        include components/employeeUpdateForm
+        if employee
+            include components/employeeUpdateForm
+        else
+            p Here should be the form to Update employees. But please select one first!

@@ -1,29 +1,37 @@
-form.update-employee-form(method='POST' action='/manage-employees/update-employee/id')
-    // USE FETCH!!!
+form.update-employee-form(method='POST' enctype="multipart/form-data" action=`/manage-employees/update-employee/${employee.id}`)
     h2 Update Employee
     .input-field
         label Full name:
-        input(disabled='' name='fullName' type='text'  placeholder="Enter employee's full name")
+        input(value=`${employee.fullName}` name='fullName' type='text'  placeholder="Enter employee's full name")
     .input-field
         label Age:
-        input(name='age' type='number'  placeholder="Enter employee's age")
+        input(name='age' value=`${employee.age}` type='number'  placeholder="Enter employee's age")
     .input-field
         label Department:
         select(required='' name='department')
-            option(value='' selected='' disabled='') Select department
-            option(value='marketing') Marketing
-            option(value='hr') Human Resource
-            option(value='finance') Finance
+            option(value='' disabled='') Select department
+            if employee.department === 'marketing'
+                option(value='marketing' selected='') Marketing
+            else
+                option(value='marketing') Marketing
+            if employee.department === 'hr'
+                option(value='hr' selected='') Human Resource
+            else
+                option(value='hr') Human Resource
+            if employee.department === 'finance'
+                option(value='finance' selected='') Finance
+            else
+                option(value='finance') Finance
     .input-field
         label Job position:
-        input(name='position' type='text'  placeholder="Enter employee's position in company")
+        input(name='position' value=`${employee.jobPosition}` type='text'  placeholder="Enter employee's position in company")
     .input-field
         label Phone number:
-        input(name='phone' type='tel'  placeholder="Enter employee's phone number")
+        input(name='phone' maxlength='13' value=`${employee.phone}` type='tel'  placeholder="Enter employee's phone number")
     .input-field
         label Email:
-        input(name='email' type='email'  placeholder="Enter employee's email address")
+        input(name='email' value=`${employee.email}` type='email'  placeholder="Enter employee's email address")
     .input-field
         label Employee&apos;s photo:
-        input(name='photo' required='' type='file')
+        input(name='file' type='file')
     button.update(type='submit') Update

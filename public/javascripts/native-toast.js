@@ -3,7 +3,7 @@ if (location.href.includes('success')) {
     message: 'Success!',
     position: 'north',
     // Self destroy in 5 seconds
-    timeout: 5000,
+    timeout: 3000,
     type: 'success'
   })
 }

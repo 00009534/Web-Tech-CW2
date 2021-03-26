@@ -11,14 +11,17 @@ const dbEmployeePath = path.resolve(__dirname, './src/databases/employees.json')
 
 router.route('/')
     .get(async (req, res) => {
-      fs.readFile(dbEmployeePath, (err, data) => {
-        if (err) res.status(404).send({success: false, error: true})
-        const employeeList = JSON.parse(data)
-        res.render('home', {logged: logStatus.status, employees: employeeList})
-      })
+      renderPage(res)
     })
     .post(setUser, isAdmin, (req, res) => {
-      res.render('home', {logged: logStatus.status})
+      renderPage(res)
     })
 
+function renderPage(res) {
+  fs.readFile(dbEmployeePath, (err, data) => {
+    if (err) res.status(404).send({success: false, error: true})
+    const employeeList = JSON.parse(data)
+    res.render('home', {logged: logStatus.status, employees: employeeList})
+  })
+}
 export default router

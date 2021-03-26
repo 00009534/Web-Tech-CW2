@@ -43,6 +43,10 @@ function drawChart() {
           gridLines: {
             display: true,
             color: 'rgba(255,99,132,0.2)'
+          },
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 10
           }
         }],
         xAxes: [{
