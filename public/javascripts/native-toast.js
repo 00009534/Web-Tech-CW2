@@ -1,3 +1,4 @@
+// Show success message
 if (location.href.includes('success')) {
   nativeToast({
     message: 'Success!',

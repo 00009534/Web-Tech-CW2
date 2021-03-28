@@ -265,3 +265,6 @@ input.success {
 input.error {
     border: 1px solid darkred;
 }
+.red {
+    color: red;
+}

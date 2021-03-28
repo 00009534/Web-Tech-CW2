@@ -1,3 +1,4 @@
+// Alert if login problems
 onload = () => {
   if (location.href.includes('login-required')) {
     alert('You are not allowed. Please log in!')
@@ -5,12 +6,14 @@ onload = () => {
     alert('Please log in again!')
   }
 }
+// Log out logic
 const logOutBtn = document.querySelector('[data-log="out"]')
 if (logOutBtn) {
   logOutBtn.addEventListener('click', () => {
     fetch('/api/v1/logout').then()
   })
 }
+// Form validations
 const loginForm = document.querySelector('.login-form')
 const createEmployeeForm = document.querySelector('.create-employee-form')
 const updateEmployeeForm = document.querySelector('.update-employee-form')
@@ -23,6 +26,7 @@ if (updateEmployeeForm) {
   validateForm(updateEmployeeForm)
 }
 
+// Delete update buttons logic
 const btnDeletes = document.querySelectorAll('[data-btn_type="delete"]')
 const btnUpdates = document.querySelectorAll('[data-btn_type="update"]')
 
@@ -45,6 +49,7 @@ if (btnDeletes) {
   })
 }
 
+// Custom form validation functions
 function validateForm(form) {
   addEventValidations(form)
   form.addEventListener('submit', (e) => {

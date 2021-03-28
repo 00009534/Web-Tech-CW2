@@ -40,7 +40,7 @@ After logging in, user will be allowed to enter certain pages as admin and do so
 ### Link to gitHub repository and Glitch:
 https://github.com/00009534/Web-Tech-CW2
 
-https://glitch.com/edit/#!/hr-app?path=src%2Fapp.js%3A45%3A0
+
 
 ### Important notes:
 When opening this app in development mode, you may face some issues with authorization:

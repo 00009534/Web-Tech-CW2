@@ -10,6 +10,7 @@ const router = express.Router();
 const dbEmployeePath = path.resolve(__dirname, './src/databases/employees.json')
 
 router.get('/get-employees', (req, res) => {
+  // Get all employees from database
   fs.readFile(dbEmployeePath, (err, data) => {
     if (err) res.status(404).send({success: false, error: true})
     const employeeList = JSON.parse(data)
@@ -18,8 +19,9 @@ router.get('/get-employees', (req, res) => {
 })
 
 router.get('/get-employee/:employeeID', isAdmin, (req, res) => {
+  // Get the employee with specific id
   fs.readFile(dbEmployeePath, (err, data) => {
-    if (err) res.status(404).send({success: false, error: true})
+    if (err) res.status(404).render('error', {error: err.message})
     const employeeList = JSON.parse(data)
     const employee =
         employeeList.find(employee => employee.id === req.params.employeeID)

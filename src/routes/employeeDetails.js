@@ -15,10 +15,13 @@ router.get('/', isAdmin, (req, res) => {
 })
 router.get('/:employeeID', isAdmin, (req, res) => {
   fs.readFile(dbEmployeePath, (err, data) => {
-    if (err) res.status(404).send({success: false, error: true})
+    if (err) res.status(404).render('error', {error: err.message})
+    // Get all employees from database
     const employeeList = JSON.parse(data)
+    // Get a particular employee
     const employee =
         employeeList.find(employee => employee.id === req.params.employeeID)
+    // Render the page and passing the employee as argument
     res.render('employeeDetails',
         {employee: employee, logged: logStatus.status})
   })

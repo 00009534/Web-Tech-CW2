@@ -5,6 +5,7 @@ import {logStatus} from './logStatus.js';
 const __dirname = path.resolve()
 const dbAdminPath = path.resolve(__dirname, './src/databases/admins.json')
 
+// Set user as admin. Imitation of cookies
 export function setUser(req, res, next) {
   if (req.body.email || req.body.password) {
     const reqUser = {
@@ -30,6 +31,7 @@ export async function isAdmin(req, res, next) {
   }
 }
 
+// Check if admin by comparing to the database of admin users
 function checkIfAdmin(req, res) {
   return new Promise((resolve, reject) => {
     const user = JSON.parse(req.user)
@@ -39,6 +41,7 @@ function checkIfAdmin(req, res) {
       admins.forEach(admin => {
         if (admin.email === user.email
             && admin.password === user.password) {
+          // If user is admin, change the status of log
           logStatus.status = true
           return resolve()
         }

@@ -2,10 +2,12 @@ let employees = []
 let marketingEmployees = []
 let financeEmployees = []
 let hrEmployees = []
+// Get employees and load bar chart
 onload = async () => {
   await getEmployees()
   drawChart()
 }
+// Get employee lists by categories
 async function getEmployees() {
   employees = await fetch('api/v1/get-employees')
       .then(res => res.json())

@@ -18,8 +18,9 @@ router.route('/')
     })
 
 function renderPage(res) {
+  // Get the list of employees and render page
   fs.readFile(dbEmployeePath, (err, data) => {
-    if (err) res.status(404).send({success: false, error: true})
+    if (err) res.status(404).render('error', {error: err.message})
     const employeeList = JSON.parse(data)
     res.render('home', {logged: logStatus.status, employees: employeeList})
   })
