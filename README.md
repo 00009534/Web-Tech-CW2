@@ -40,7 +40,7 @@ After logging in, user will be allowed to enter certain pages as admin and do so
 ### Link to gitHub repository and Glitch:
 https://github.com/00009534/Web-Tech-CW2
 
-
+https://9534-hr.glitch.me/
 
 ### Important notes:
 When opening this app in development mode, you may face some issues with authorization:
