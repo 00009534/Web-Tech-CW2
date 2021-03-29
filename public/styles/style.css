@@ -121,6 +121,19 @@ blockquote::after, blockquote::before {
     text-align: center;
     grid-area: footer;
 }
+nav.footer-nav {
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+nav.footer-nav a {
+    padding-left: 0.5rem;
+    border-left: 2px solid #bbb;
+    color: #548bec;
+}
 ul.employee-list {
     list-style: none;
     width: min(90%, 95vw);
@@ -192,6 +205,7 @@ blockquote.about {
     align-self: center;
     max-width: 480px;
     margin-bottom: 2rem;
+    text-align: center;
 }
 .manager-forms form, .login-form{
     padding: 1rem;
@@ -226,6 +240,7 @@ blockquote.about {
 }
 .employee-data {
     width: 100%;
+    gap: 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -267,4 +282,91 @@ input.error {
 }
 .red {
     color: red;
+}
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        width: 300px;
+    }
+    blockquote.about {
+        width: 90%;
+    }
+    .employee-data {
+        font-size: 1.3rem;
+    }
+    .employee-data img {
+        width: 160px;
+    }
+    .employee-data span {
+        display: block;
+    }
+}
+@media screen and (max-width: 800px) {
+    .sidebar {
+        width: 250px;
+    }
+    .main-content__heading {
+        font-size: 1.9rem;
+    }
+    .manager-forms form, .login-form {
+        min-width: 350px;
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+    nav.footer-nav {
+        visibility: visible;
+    }
+    body {
+        grid-template-areas: 'header' 'main' 'footer';
+    }
+    .main-content {
+        width: 100%;
+    }
+    .main-content__heading {
+        font-size: 1.9rem;
+    }
+    .manager-forms form, .login-form {
+        min-width: 350px;
+        font-size: 1.2rem;
+    }
+    .employee-data {
+        flex-direction: column;
+    }
+    .employee-data span {
+        display: inline;
+    }
+}
+@media screen and (max-width: 450px) {
+    .main-content__heading {
+        font-size: 1.8rem;
+    }
+    .manager-forms form, .login-form {
+        min-width: 95%;
+        font-size: 1.2rem;
+    }
+    .input-field {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+    blockquote {
+        width: 90%;
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 350px) {
+    .main-content__heading {
+        font-size: 1.5rem;
+    }
+    .manager-forms form h2 {
+        font-size: 1.4rem;
+    }
+    .employee-data span {
+        display: block;
+    }
+    .statistics {
+        width: 90%;
+    }
 }
