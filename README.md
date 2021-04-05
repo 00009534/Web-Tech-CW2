@@ -20,6 +20,14 @@ _express, axios, pug, multer, chart.js_
 ### **Dev deps:**
 _nodemon, @types/express, eslint, eslint-config-google_
 
+### Project structure:
+The project uses the following structure:
+Root folder has folders: public and src
+Public includes all static files like images, styles, javaScript files.
+Src folder includes databases (json files), routes (route handlers for express),
+utils (some additional js files, which perform specific logic), views (pug files for UI), and app.js (main config file).
+
+
 ### How to use the app:
 Firstly when user opens the app he/she enters the main page with general information about
 employees.
